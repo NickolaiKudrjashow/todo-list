@@ -7,11 +7,16 @@ function createElements(text) {
     items.push(text);
     saveToStorage(items);
     let newElem = document.createElement("div");
-    let deletebtn = document.createElement("div");
+    let deletebtn = document.createElement("span");
+    deletebtn.className = "task__item-delete";
+    deletebtn.textContent = "x"
     newElem.className = "task__item";
-    deletebtn.textContent = "delete"
     newElem.textContent = text;
     itemList.appendChild(newElem);
+    newElem.appendChild(deletebtn);
+    deletebtn.addEventListener("click", function(){
+        itemList.removeChild(newElem);
+    })
 }
 btn.addEventListener("click", function(e){
     e.preventDefault();
@@ -20,7 +25,6 @@ btn.addEventListener("click", function(e){
         input.value = "";
     }
 })
-
 function saveToStorage(items) {
     localStorage.setItem('items', JSON.stringify(items));
 }

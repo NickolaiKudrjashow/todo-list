@@ -519,10 +519,30 @@ body {
 .task__item{
     margin-bottom: 30px;
     margin-left: 15px;
-    background: transparent url(../img/svg/circle.svg) no-repeat left center;
+    background: transparent url(../img/svg/circle.svg) no-repeat left top;
     background-size: 28px;
     padding-left: 30px;
-    height: 30px;
     position: relative;
+    min-height: 30px;
+}
+.task__item-delete{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: red;
+    color: #ffffff;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
+    cursor: pointer;
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    transition: ease .3s;
+    opacity: 0;
+}
+.task__item:hover >.task__item-delete{
+    opacity: 1;
+    transition: ease .3s;
 }
 /*Task style End*/
